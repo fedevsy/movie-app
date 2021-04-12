@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Movie from '../components/Movies';
-import './Home.css'
+import { MdAutorenew } from "react-icons/md";
+import './Home.scss'
 
 class Home extends React.Component {
   state = {
@@ -17,6 +18,9 @@ class Home extends React.Component {
     this.setState({ movies, isLoading: false })
   }
   componentDidMount() {
+    document.querySelector('.nav').style.display = 'flex';
+    document.body.style.backgroundImage = `none`;
+    document.body.style.backgroundColor= '#FAEBEF';
     this.getMovies();
   }
   render() {
@@ -25,7 +29,7 @@ class Home extends React.Component {
     <section className="container">
       {isLoading ? (
         <div className="loader">
-          <span className="loader-text">Loading...</span>
+          <MdAutorenew className="loader-icon"/>
         </div>
       ) : (
       <div className="Movies">
